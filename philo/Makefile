@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/24 12:54:18 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/24 14:51:57 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ DATE	= 25/03/2021
 
 SRCS_PATH	= src
 
-SRCS		=
+SRCS		= utils/put.c time.c
 
 MAIN		= main.c
 
@@ -40,7 +40,7 @@ TEST_NAME		= test
 
 SRCS_TESTS_PATH	= tests
 
-SRCS_TESTS		= main.c
+SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c
 
 ################################################################################
 #                                 Makefile logic                               #
@@ -99,7 +99,7 @@ $(NAME): 	${OBJS} ${OBJ_MAIN}
 			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ ${OBJS} ${OBJ_MAIN})
 
 $(TEST_NAME):	$(OBJS_TESTS)
-			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS))
+			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS) $(OBJS))
 
 objs/%.o: 	$(SRCS_PATH)/%.c
 			@mkdir -p $(dir $@)
@@ -110,8 +110,7 @@ objs_tests/%.o: $(SRCS_TESTS_PATH)/%.c
 			@$(call run_and_test,$(CC) $(CFLAGS) -c $< -o $@)
 
 clean:		header
-			@rm -rf objs objs_tests tests/logs tests/outs tests/diffs
-			@make -sC ./libft clean
+			@rm -rf objs objs_tests
 			@printf "%-53b%b" "$(COM_COLOR)clean:" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"
 
 fclean:		header clean
