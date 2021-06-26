@@ -1,0 +1,22 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test_philo:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install valgrind
+      run: sudo apt install -y valgrind
+    - name: build all
+      run: cd philo && make all
+    - name: build test
+      run: cd philo && make test
+    - name: est
+      run: cd philo && ./test
+    

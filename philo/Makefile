@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/26 14:18:17 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/26 14:20:12 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ header:
 $(NAME): 	${OBJS} ${OBJ_MAIN}
 			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ ${OBJS} ${OBJ_MAIN})
 
-$(TEST_NAME):	$(OBJS_TESTS) $(OBJS)
+$(TEST_NAME):	header $(OBJS_TESTS) $(OBJS)
 			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS) $(OBJS))
 
 objs/%.o: 	$(SRCS_PATH)/%.c
