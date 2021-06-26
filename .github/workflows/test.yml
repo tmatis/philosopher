@@ -17,6 +17,6 @@ jobs:
       run: cd philo && make all
     - name: build test
       run: cd philo && make test
-    - name: est
+    - name: test
       run: cd philo && ./test
     
