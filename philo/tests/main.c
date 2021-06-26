@@ -6,12 +6,19 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:48:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/24 14:34:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/25 14:15:52 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "assert/assert.h"
+#include "test.h"
 #include <stdlib.h>
+
+static void	testing(t_tests *tester)
+{
+	test_get_actual_time(tester);
+	test_get_relative_time(tester);
+	test_ft_usleep(tester);
+}
 
 int	main(int argc, char **argv)
 {
@@ -25,6 +32,7 @@ int	main(int argc, char **argv)
 		printf("No log level specified, set to 3\n");
 	tests = init_tester("Philosoper", log_level);
 	tests_header(tests);
+	testing(&tests);
 	tests_result(&tests);
 	if (tests.tests_failed)
 		return (1);

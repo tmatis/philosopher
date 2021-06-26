@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/24 14:51:57 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/26 14:18:17 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ TEST_NAME		= test
 
 SRCS_TESTS_PATH	= tests
 
-SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c
+SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c test_time.c \
+				  utils.c
 
 ################################################################################
 #                                 Makefile logic                               #
@@ -98,7 +99,7 @@ header:
 $(NAME): 	${OBJS} ${OBJ_MAIN}
 			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ ${OBJS} ${OBJ_MAIN})
 
-$(TEST_NAME):	$(OBJS_TESTS)
+$(TEST_NAME):	$(OBJS_TESTS) $(OBJS)
 			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS) $(OBJS))
 
 objs/%.o: 	$(SRCS_PATH)/%.c
@@ -115,6 +116,7 @@ clean:		header
 
 fclean:		header clean
 			@rm -rf $(NAME)
+			@rm -rf $(TEST_NAME)
 			@printf "%-53b%b" "$(COM_COLOR)fclean:" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"
 
 re:			fclean all
