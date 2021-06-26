@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:40:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/24 14:47:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/26 14:46:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	putstr_fd(char *str, int fd)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	write(fd, str, i);
 }

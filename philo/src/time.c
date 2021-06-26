@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:34:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/26 14:17:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/26 14:46:02 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@
 void	ft_usleep(t_timems ms)
 {
 	t_timems	time_of_day;
+
 	time_of_day = get_actual_time();
 	while (get_relative_time(time_of_day) < ms)
 		usleep(100);
-	/*
-	if (usleep(ms * 1000) < 0)
-		puterror("philo", "ft_usleep", "fail");*/
 }
 
 /*

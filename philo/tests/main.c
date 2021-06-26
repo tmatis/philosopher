@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:48:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/25 14:15:52 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/26 14:40:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 {
 	int		log_level;
 	t_tests	tests;
-	
+
 	log_level = 3;
 	if (argc > 1)
 		log_level = atoi(argv[1]);
