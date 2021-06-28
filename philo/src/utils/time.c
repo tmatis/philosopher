@@ -6,12 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:34:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/26 14:46:02 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/27 17:17:32 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "philo.h"
+#include "../philo.h"
 #include <sys/time.h>
 
 /*

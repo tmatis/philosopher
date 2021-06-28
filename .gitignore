@@ -1,4 +1,4 @@
 philo/philo
 philo/test
-*/*.o
+*.o
 .DS_Store

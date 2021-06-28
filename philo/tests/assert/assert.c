@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 18:18:17 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/22 13:21:49 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 12:10:26 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,17 @@ static void	ft_putstrun(char *str, int pos)
 		if (!pos--)
 		{
 			printf("\033[0;31m\033[4m");
-			printf("%c", *str++);
+			if (!(*str < 32 || *str > 126))
+				printf("%c", *str);
+			str++;
 			printf("\033[0m\033[0;33m\033[3m");
 		}
 		else
-			printf("%c", *str++);
+		{
+			if (!(*str < 32 || *str > 126))
+				printf("%c", *str);
+			str++;
+		}
 	}
 }
 
@@ -92,9 +98,9 @@ void	ft_assert_strcmp(
 	if (act[i] == exp[i] && tests->log_level >= 4)
 	{
 		printf("\033[0;33m\033[3m\"");
-		printf("%s", act);
+		printf_printable(act);
 		printf("\" == \"");
-		printf("%s", exp);
+		printf_printable(exp);
 		printf("\"\033[0m\n       ");
 	}
 	else if (act[i] != exp[i] && tests->log_level >= 2)

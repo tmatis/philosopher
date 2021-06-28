@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:48:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/26 14:40:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/27 19:17:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ static void	testing(t_tests *tester)
 {
 	test_get_actual_time(tester);
 	test_get_relative_time(tester);
-	test_ft_usleep(tester);
+	//test_ft_usleep(tester);
+	test_ft_atoi(tester);
+	test_parse_args(tester);
 }
 
 int	main(int argc, char **argv)

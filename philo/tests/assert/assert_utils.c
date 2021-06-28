@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 13:53:33 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/22 19:04:58 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 12:12:19 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,14 @@ void	tests_result(t_tests *tests)
 	printf("/");
 	printf("%i", tests->tests_success + tests->tests_failed);
 	printf("\033[0m\n");
+}
+
+void	printf_printable(char *src)
+{
+	while (*src)
+	{
+		if (!(*src < 32 || *src > 126))
+			printf("%c", *src);
+		src++;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/26 14:20:12 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/28 12:54:58 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ DATE	= 25/03/2021
 
 SRCS_PATH	= src
 
-SRCS		= utils/put.c time.c
+SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c
 
 MAIN		= main.c
 
@@ -40,8 +40,8 @@ TEST_NAME		= test
 
 SRCS_TESTS_PATH	= tests
 
-SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c test_time.c \
-				  utils.c
+SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c assert/redirect_out.c \
+				  test_time.c utils.c test_atoi.c test_parser.c assert/assert_stdout.c
 
 ################################################################################
 #                                 Makefile logic                               #

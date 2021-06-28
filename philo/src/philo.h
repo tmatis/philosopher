@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/26 14:46:28 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/27 17:17:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,24 @@
 */
 typedef long long	t_timems;
 
+
+/*
+** philo_config
+*/
+typedef struct s_config
+{
+	int			philo_count;
+	t_timems	time_to_die;
+	t_timems	time_to_eat;
+	t_timems	time_to_sleep;
+	int			meal_count;
+}	t_config;
+
 void		puterror(char *name, char *location, char *error);
 void		ft_usleep(t_timems ms);
 t_timems	get_relative_time(t_timems start_time);
 t_timems	get_actual_time(void);
+long long	ft_atoi(const char *str, int *error_nullable);
+int			parse_args(int argc, char **argv, t_config *config);
 
 #endif
