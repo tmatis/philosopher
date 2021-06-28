@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 17:29:41 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 18:20:58 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 19:50:08 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	test_not_number(t_tests *tester)
 	ft_assert_cmp(parse_args(4, (char **)g_not_g_good, &config), -1,
 		"parse_args: not a number", tester);
 	ft_assert_stdout(stdtest,
-		"philo: parse_args: all args should be a integer\n",
+		"philo: parse_args: all args should be a positive integer\n",
 		"parse_args: not a number output", tester);
 }
 

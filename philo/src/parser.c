@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 16:58:55 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 18:23:11 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 19:49:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	return_error(void)
 {
-	puterror("philo", "parse_args", "all args should be a integer");
+	puterror("philo", "parse_args", "all args should be a positive integer");
 	return (-1);
 }
 
@@ -24,7 +24,7 @@ static int	set_config(int *val, char *n_str)
 	int	error;
 
 	*val = ft_atoi(n_str, &error);
-	if (error)
+	if (error || *val < 0)
 		return (-1);
 	return (0);
 }
