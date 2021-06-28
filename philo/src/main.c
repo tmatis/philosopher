@@ -6,13 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:14:46 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/27 16:57:38 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 17:24:55 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	t_config	config;	
 }

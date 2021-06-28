@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 19:25:49 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/27 17:27:24 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:12:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	test_ft_usleep(t_tests *tester)
 
 	is_ok = 1;
 	sleep_time = 1;
-	while (sleep_time <= 2000)
+	while (sleep_time <= 1000)
 	{
 		start_time = get_actual_time();
 		ft_usleep(sleep_time);

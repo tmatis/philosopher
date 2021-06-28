@@ -6,14 +6,17 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 16:42:16 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/27 16:55:32 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 17:52:21 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	ft_atoi(const char *str, int *error_nullable)
+#include <limits.h>
+
+int	ft_atoi(const char *str, int *error_nullable)
 {
-	long long			sign;
+	int					sign;
 	long long unsigned	n;
+	long long			result;
 
 	sign = 1;
 	n = 0;
@@ -31,5 +34,8 @@ long long	ft_atoi(const char *str, int *error_nullable)
 		*error_nullable = 1;
 	else if (error_nullable)
 		*error_nullable = 0;
-	return (n * sign);
+	result = n * sign;
+	if (error_nullable && (result > INT_MAX || result < INT_MIN))
+		*error_nullable = 1;
+	return (result);
 }

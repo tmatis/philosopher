@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/27 17:17:30 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 17:44:17 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef long long	t_timems;
 */
 typedef struct s_config
 {
-	int			philo_count;
-	t_timems	time_to_die;
-	t_timems	time_to_eat;
-	t_timems	time_to_sleep;
-	int			meal_count;
+	int	philo_count;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	meal_count;
 }	t_config;
 
 void		puterror(char *name, char *location, char *error);
