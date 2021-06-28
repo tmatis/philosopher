@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 16:58:55 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 18:10:23 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:23:11 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	set_config(int *val, char *n_str)
 */
 int	parse_args(int argc, char **argv, t_config *config)
 {
-
 	if (argc < 4 || argc > 5)
 	{
 		puterror("philo", "parse_args", "args count error");

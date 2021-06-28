@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:19:08 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 12:57:20 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:22:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ typedef struct s_tests
 	char	name[256];
 }				t_tests;
 
-typedef	struct s_stdtest
+typedef struct s_stdtest
 {
 	int	out_fd;
 	int	backup_fd;
 	int	read_fd;
 }	t_stdtest;
-
 
 t_tests			init_tester(char name[256], int log_level);
 void			tests_header(t_tests tests);

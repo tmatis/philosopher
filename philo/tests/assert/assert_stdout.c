@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 12:30:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 12:57:25 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:21:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ t_stdtest	init_test_stdout(int out_fd)
 	return (stdtest);
 }
 
-void	ft_assert_stdout(t_stdtest stdtest, char *exp, char *behavior, t_tests *tests)
+void	ft_assert_stdout(t_stdtest stdtest, char *exp, char *behavior,
+			t_tests *tests)
 {
 	char	*result;
-	
+
 	result = redirect_str(stdtest.backup_fd, stdtest.out_fd, stdtest.read_fd);
 	if (!result)
 		return ;

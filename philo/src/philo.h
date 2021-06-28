@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 17:44:17 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:23:25 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 ** time in ms;
 */
 typedef long long	t_timems;
-
 
 /*
 ** philo_config
