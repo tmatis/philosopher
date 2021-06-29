@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:26:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:36:42 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	init_philo(t_manager *manager)
 			return (-1);
 		}
 		manager->philo_array[i].manager = manager;
-		manager->philo_array[i].philo_id =  i + 1;
+		manager->philo_array[i].philo_id = i + 1;
 		manager->philo_array[i].last_meal = 0;
 		manager->philo_array[i].meal_counter = 0;
 		manager->philo_array[i].fork = FORK_AVAILABLE;
@@ -48,7 +48,7 @@ int	setup_manager(t_manager *manager)
 	}
 	manager->stop_simulation = 0;
 	if (pthread_mutex_init(&manager->stop_simulation_mutex, NULL) < 0
-			|| init_philo(manager) < 0)
+		|| init_philo(manager) < 0)
 	{
 		puterror("philo", "setup_manager", "philosopher mutex fail");
 		return (-1);

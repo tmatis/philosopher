@@ -6,12 +6,11 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:14:46 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:07:13 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:36:08 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 int	main(int argc, char **argv)
 {

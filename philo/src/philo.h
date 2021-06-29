@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:15:26 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:38:05 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <sys/time.h>
 # include <pthread.h>
+
 /*
 ** time in ms;
 */
@@ -36,7 +37,7 @@ typedef struct s_config
 	int	meal_count;
 }	t_config;
 
-typedef	struct s_manager
+typedef struct s_manager
 {
 	t_config		config;
 	t_timems		start_time;
@@ -45,7 +46,6 @@ typedef	struct s_manager
 	pthread_mutex_t	stop_simulation_mutex;
 
 }	t_manager;
-
 
 typedef struct s_philo
 {
@@ -58,7 +58,6 @@ typedef struct s_philo
 	int				is_dead;
 	t_manager		*manager;
 }	t_philo;
-
 
 void		puterror(char *name, char *location, char *error);
 void		ft_usleep(t_timems ms);
