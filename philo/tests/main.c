@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:48:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/28 17:26:14 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/29 18:33:26 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	testing(t_tests *tester)
 	test_ft_usleep(tester);
 	test_ft_atoi(tester);
 	test_parse_args(tester);
+	test_setup_manager(tester);
 }
 
 int	main(int argc, char **argv)

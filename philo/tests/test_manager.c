@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   test_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 19:22:30 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:33:03 by tmatis           ###   ########.fr       */
+/*   Created: 2021/06/29 18:23:06 by tmatis            #+#    #+#             */
+/*   Updated: 2021/06/29 18:32:17 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
+#include "test.h"
 
-# define TEST_H
+const static char	*g_good[] = {"10", "124", "125", "126"};
 
-# include "../src/philo.h"
-# include "assert/assert.h"
+void	test_setup_manager(t_tests *tester)
+{
+	t_manager	manager;
+	t_config	config;
 
-void	test_get_actual_time(t_tests *tester);
-void	test_get_relative_time(t_tests *tester);
-int		is_in_range(int n, int ref, int range);
-void	test_ft_usleep(t_tests *tester);
-void	test_ft_atoi(t_tests *tester);
-void	test_parse_args(t_tests *tester);
-void	test_setup_manager(t_tests *tester);
-
-#endif
+	parse_args(4, (char **)g_good, &config);
+	setup_manager(&manager);
+	ft_assert(manager.philo_array[0].fork == FORK_AVAILABLE,
+		"setup_manager: check if manager is ready",  tester);
+	destroy_manager(manager);
+}

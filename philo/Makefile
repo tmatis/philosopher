@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/29 18:05:48 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/29 18:34:08 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ TEST_NAME		= test
 SRCS_TESTS_PATH	= tests
 
 SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c assert/redirect_out.c \
-				  test_time.c utils.c test_atoi.c test_parser.c assert/assert_stdout.c
+				  test_time.c utils.c test_atoi.c test_parser.c assert/assert_stdout.c \
+				  test_manager.c
 
 ################################################################################
 #                                 Makefile logic                               #
