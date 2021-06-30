@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:38:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:38:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,15 @@
 # define FORK_AVAILABLE 0
 # define FORK_TAKEN 1;
 
+# define RUN_WAIT 0
+# define RUN_ODD 1
+# define RUN_ALL 2
+# define RUN_STOP 3
+
 # include <sys/time.h>
 # include <pthread.h>
+# include <unistd.h>
+# include <stdio.h>
 
 /*
 ** time in ms;
@@ -42,8 +49,9 @@ typedef struct s_manager
 	t_config		config;
 	t_timems		start_time;
 	struct s_philo	*philo_array;
-	int				stop_simulation;
-	pthread_mutex_t	stop_simulation_mutex;
+	pthread_t		*philo_threads;
+	int				run_simulation;
+	pthread_mutex_t	run_simulation_mutex;
 
 }	t_manager;
 
@@ -65,7 +73,9 @@ t_timems	get_relative_time(t_timems start_time);
 t_timems	get_actual_time(void);
 int			ft_atoi(const char *str, int *error_nullable);
 int			parse_args(int argc, char **argv, t_config *config);
-int			setup_manager(t_manager *manager);
-void		destroy_manager(t_manager manager);
+int			manager_setup(t_manager *manager);
+void		manager_destroy(t_manager manager);
+void		*philo_routine(t_philo *philo);
+void		manager_set_run(int run_state, t_manager *manager);
 
 #endif

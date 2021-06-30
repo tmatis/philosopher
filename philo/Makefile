@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/29 18:34:08 by tmatis           ###   ########.fr        #
+#    Updated: 2021/06/30 11:47:30 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ DATE	= 25/03/2021
 
 SRCS_PATH	= src
 
-SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c manager.c
+SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c \
+			  manager/manager_setup.c manager/manager_func.c philo.c 
 
 MAIN		= main.c
 

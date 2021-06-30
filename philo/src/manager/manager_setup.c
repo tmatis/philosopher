@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manager.c                                          :+:      :+:    :+:   */
+/*   manager_setup.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/29 18:36:42 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:45:55 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 #include <pthread.h>
 #include <stdlib.h>
 
@@ -21,7 +21,7 @@ static int	init_philo(t_manager *manager)
 	i = 0;
 	while (i < manager->config.philo_count)
 	{
-		if (pthread_mutex_init(&manager->stop_simulation_mutex, NULL) < 0)
+		if (pthread_mutex_init(&manager->run_simulation_mutex, NULL) < 0)
 		{
 			while (i--)
 				pthread_mutex_destroy(&manager->philo_array[i].fork_mutex);
@@ -32,12 +32,15 @@ static int	init_philo(t_manager *manager)
 		manager->philo_array[i].last_meal = 0;
 		manager->philo_array[i].meal_counter = 0;
 		manager->philo_array[i].fork = FORK_AVAILABLE;
+		if (pthread_create(&manager->philo_threads[i], NULL,
+			(void *)(void *)philo_routine, &manager->philo_array[i]) < 0)
+			return (-1);
 		i++;
 	}
 	return (0);
 }
 
-int	setup_manager(t_manager *manager)
+int	manager_setup(t_manager *manager)
 {
 	manager->philo_array
 		= malloc((manager->config.philo_count) * sizeof(t_philo));
@@ -46,8 +49,16 @@ int	setup_manager(t_manager *manager)
 		puterror("philo", "setup_manager", "philosopher allocation fail");
 		return (-1);
 	}
-	manager->stop_simulation = 0;
-	if (pthread_mutex_init(&manager->stop_simulation_mutex, NULL) < 0
+	manager->philo_threads
+		= malloc(manager->config.philo_count * sizeof(pthread_t));
+	if (!manager->philo_threads)
+	{
+		puterror("philo", "setup_manager", "threads allocation fail");
+		free(manager->philo_array);
+		return (-1);
+	}
+	manager->run_simulation = RUN_WAIT;
+	if (pthread_mutex_init(&manager->run_simulation_mutex, NULL) < 0
 		|| init_philo(manager) < 0)
 	{
 		puterror("philo", "setup_manager", "philosopher mutex fail");
@@ -56,10 +67,13 @@ int	setup_manager(t_manager *manager)
 	return (0);
 }
 
-void	destroy_manager(t_manager manager)
+void	manager_destroy(t_manager manager)
 {
 	int	i;
 
+	free(manager.philo_array);
+	free(manager.philo_threads);
+	pthread_mutex_destroy(&manager.run_simulation_mutex);
 	i = 0;
 	while (i < manager.config.philo_count)
 	{
