@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:38:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 16:39:43 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 21:04:50 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	action_eat(t_philo *philo)
 	if (stop_condition(philo))
 		return ;
 	philo->last_meal = get_relative_time(philo->manager->start_time);
-	philo->meal_counter++;
 	printf("%lli %i is eating\n", philo->last_meal, philo->philo_id);
 	start = get_actual_time();
 	while (!stop_condition(philo)
 		&& !is_counter_reached(philo->manager->config.time_to_eat, start))
 		usleep(PERF_DELAY);
+	philo->meal_counter++;
 	drop_forks(philo);
 	philo->action = ACTION_SLEEPING;
 }
