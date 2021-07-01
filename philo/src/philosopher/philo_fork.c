@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 19:36:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 12:05:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 16:33:25 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	get_fork(t_philo *philo, int **fork_left, int **fork_right)
 		if (philo->philo_id == philo->manager->config.philo_count)
 			*fork_right = &philo->manager->philo_array[0].fork;
 		else
-			*fork_right =
-				&philo->manager->philo_array[philo->philo_id].fork;
+			*fork_right
+				= &philo->manager->philo_array[philo->philo_id].fork;
 	}
 	else
 		return (1);
@@ -66,9 +66,11 @@ int	take_forks(t_philo *philo)
 	else if (*fork_left == FORK_AVAILABLE && *fork_right == FORK_AVAILABLE)
 	{
 		*fork_left = FORK_TAKEN;
-		printf("%lli %i has taken a fork\n", get_relative_time(philo->manager->start_time), philo->philo_id);
+		printf("%lli %i has taken a fork\n",
+			get_relative_time(philo->manager->start_time), philo->philo_id);
 		*fork_right = FORK_TAKEN;
-		printf("%lli %i has taken a fork\n", get_relative_time(philo->manager->start_time), philo->philo_id);
+		printf("%lli %i has taken a fork\n",
+			get_relative_time(philo->manager->start_time), philo->philo_id);
 		return_value = 0;
 	}	
 	else

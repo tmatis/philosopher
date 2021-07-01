@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 11:18:30 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 16:40:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # define ACTION_EATING 0
 # define ACTION_SLEEPING 1
 # define ACTION_THINKING 2
+
+# ifndef PERF_DELAY
+#  define PERF_DELAY 200
+# endif
 
 # include <sys/time.h>
 # include <pthread.h>
@@ -87,5 +91,10 @@ int			philo_is_dead(t_philo *philo);
 int			take_forks(t_philo *philo);
 void		drop_forks(t_philo *philo);
 int			is_counter_reached(t_timems target, t_timems relative_start);
+void		manager_wait_threads(t_manager manager);
+int			stop_condition(t_philo *philo);
+void		action_eat(t_philo *philo);
+void		action_sleep(t_philo *philo);
+void		action_think(t_philo *philo);
 
 #endif

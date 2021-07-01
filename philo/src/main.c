@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:14:46 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 12:52:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 14:33:49 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	main(int argc, char **argv)
 	manager_set_runstate(RUN_ODD, &manager);
 	usleep(300);
 	manager_set_runstate(RUN_ALL, &manager);
-	pause();
+	manager_wait_threads(manager);
 	manager_destroy(manager);
 }

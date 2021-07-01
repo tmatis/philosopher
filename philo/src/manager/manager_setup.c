@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 11:10:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 16:37:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	init_philo(t_manager *manager)
 		manager->philo_array[i].fork = FORK_AVAILABLE;
 		manager->philo_array[i].action = ACTION_EATING;
 		if (pthread_create(&manager->philo_threads[i], NULL,
-			(void *)(void *)philo_routine, &manager->philo_array[i]) < 0)
+				(void *)(void *)philo_routine, &manager->philo_array[i]) < 0)
 			return (-1);
 		i++;
 	}
@@ -81,4 +81,13 @@ void	manager_destroy(t_manager manager)
 		pthread_mutex_destroy(&manager.philo_array[i].fork_mutex);
 		i++;
 	}
+}
+
+void	manager_wait_threads(t_manager manager)
+{
+	int	i;
+
+	i = 0;
+	while (i < manager.config.philo_count)
+		pthread_join(manager.philo_threads[i++], NULL);
 }
