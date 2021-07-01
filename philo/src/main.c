@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:14:46 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/30 11:41:32 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 12:52:29 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ int	main(int argc, char **argv)
 	manager.config = config;
 	if (manager_setup(&manager) < 0)
 		return (2);
-	manager_set_run(RUN_ODD, &manager);
-	ft_usleep(1000);
-	manager_set_run(RUN_ALL, &manager);
-	ft_usleep(1000);
-	manager_set_run(RUN_STOP, &manager);
-	ft_usleep(1000);
+	manager.start_time = get_actual_time();
+	manager_set_runstate(RUN_ODD, &manager);
+	usleep(300);
+	manager_set_runstate(RUN_ALL, &manager);
+	pause();
 	manager_destroy(manager);
-	
 }

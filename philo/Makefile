@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/06/30 11:47:30 by tmatis           ###   ########.fr        #
+#    Updated: 2021/07/01 10:16:28 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ DATE	= 25/03/2021
 SRCS_PATH	= src
 
 SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c \
-			  manager/manager_setup.c manager/manager_func.c philo.c 
+			  manager/manager_setup.c manager/manager_func.c philosopher/philo.c \
+			  philosopher/philo_fork.c
 
 MAIN		= main.c
 
@@ -43,7 +44,7 @@ SRCS_TESTS_PATH	= tests
 
 SRCS_TESTS		= main.c assert/assert_utils.c assert/assert.c assert/redirect_out.c \
 				  test_time.c utils.c test_atoi.c test_parser.c assert/assert_stdout.c \
-				  test_manager.c
+				  test_manager.c test_philo.c
 
 ################################################################################
 #                                 Makefile logic                               #
@@ -99,10 +100,10 @@ header:
 	@echo
 
 $(NAME): 	${OBJS} ${OBJ_MAIN}
-			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ ${OBJS} ${OBJ_MAIN})
+			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ ${OBJS} ${OBJ_MAIN} -lpthread)
 
 $(TEST_NAME):	header $(OBJS_TESTS) $(OBJS)
-			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS) $(OBJS))
+			@$(call run_and_test,$(CC) $(CFLAGS) -o $@ $(OBJS_TESTS) $(OBJS) -lpthread)
 
 objs/%.o: 	$(SRCS_PATH)/%.c
 			@mkdir -p $(dir $@)
@@ -123,4 +124,4 @@ fclean:		header clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re libft header check malloc_check
+.PHONY:		all clean fclean re libft header

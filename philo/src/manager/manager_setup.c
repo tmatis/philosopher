@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/30 11:45:55 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 11:10:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int	init_philo(t_manager *manager)
 		manager->philo_array[i].last_meal = 0;
 		manager->philo_array[i].meal_counter = 0;
 		manager->philo_array[i].fork = FORK_AVAILABLE;
+		manager->philo_array[i].action = ACTION_EATING;
 		if (pthread_create(&manager->philo_threads[i], NULL,
 			(void *)(void *)philo_routine, &manager->philo_array[i]) < 0)
 			return (-1);

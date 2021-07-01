@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/06/30 11:38:01 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/01 11:18:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define RUN_ODD 1
 # define RUN_ALL 2
 # define RUN_STOP 3
+
+# define ACTION_EATING 0
+# define ACTION_SLEEPING 1
+# define ACTION_THINKING 2
 
 # include <sys/time.h>
 # include <pthread.h>
@@ -64,6 +68,7 @@ typedef struct s_philo
 	int				fork;
 	pthread_mutex_t	fork_mutex;
 	int				is_dead;
+	int				action;
 	t_manager		*manager;
 }	t_philo;
 
@@ -76,6 +81,11 @@ int			parse_args(int argc, char **argv, t_config *config);
 int			manager_setup(t_manager *manager);
 void		manager_destroy(t_manager manager);
 void		*philo_routine(t_philo *philo);
-void		manager_set_run(int run_state, t_manager *manager);
+void		manager_set_runstate(int run_state, t_manager *manager);
+int			manager_get_runstate(t_manager *manager);
+int			philo_is_dead(t_philo *philo);
+int			take_forks(t_philo *philo);
+void		drop_forks(t_philo *philo);
+int			is_counter_reached(t_timems target, t_timems relative_start);
 
 #endif
