@@ -6,16 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 16:40:39 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 11:37:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 
 # define PHILO_H
-
-# define FORK_AVAILABLE 0
-# define FORK_TAKEN 1;
 
 # define RUN_WAIT 0
 # define RUN_ODD 1
@@ -27,7 +24,7 @@
 # define ACTION_THINKING 2
 
 # ifndef PERF_DELAY
-#  define PERF_DELAY 200
+#  define PERF_DELAY 300
 # endif
 
 # include <sys/time.h>
@@ -69,7 +66,6 @@ typedef struct s_philo
 	int				philo_id;
 	int				meal_counter;
 	t_timems		last_meal;
-	int				fork;
 	pthread_mutex_t	fork_mutex;
 	int				is_dead;
 	int				action;
@@ -88,7 +84,7 @@ void		*philo_routine(t_philo *philo);
 void		manager_set_runstate(int run_state, t_manager *manager);
 int			manager_get_runstate(t_manager *manager);
 int			philo_is_dead(t_philo *philo);
-int			take_forks(t_philo *philo);
+void		take_forks(t_philo *philo);
 void		drop_forks(t_philo *philo);
 int			is_counter_reached(t_timems target, t_timems relative_start);
 void		manager_wait_threads(t_manager manager);
