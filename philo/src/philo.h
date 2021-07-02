@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 11:37:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 14:05:41 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define PHILO_H
 
 # define RUN_WAIT 0
-# define RUN_ODD 1
+# define RUN_EVEN 1
 # define RUN_ALL 2
 # define RUN_STOP 3
 

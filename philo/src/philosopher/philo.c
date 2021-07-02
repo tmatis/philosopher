@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 10:23:49 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 22:44:26 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 14:06:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	*philo_routine(t_philo *philo)
 	while (1)
 	{
 		state = manager_get_runstate(philo->manager);
-		if ((philo->philo_id % 2 && state == RUN_ODD) || state == RUN_ALL)
+		if ((!(philo->philo_id % 2) && state == RUN_EVEN) || state == RUN_ALL)
 		{
 			dine(philo);
 			return (NULL);
