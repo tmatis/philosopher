@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:23:06 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/01 16:32:19 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 11:39:04 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	test_setup_manager(t_tests *tester)
 	parse_args(4, (char **)g_good, &config);
 	manager.config = config;
 	manager_setup(&manager);
-	ft_assert(manager.philo_array[0].fork == FORK_AVAILABLE,
+	ft_assert(manager.philo_array[0].action == ACTION_EATING,
 		"setup_manager: check if manager is ready", tester);
 	manager_destroy(manager);
 }
