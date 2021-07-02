@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/07/02 18:30:18 by tmatis           ###   ########.fr        #
+#    Updated: 2021/07/02 18:02:27 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@
 NAME	= philo
 CC 		= clang
 CFLAGS	= -Wall -Werror -Wextra -g
+LIBFT	= libft/libft.a
 AUTHOR	= tmatis
 DATE	= 25/03/2021
 
@@ -124,4 +125,4 @@ fclean:		header clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re header
+.PHONY:		all clean fclean re libft header
