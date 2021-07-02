@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 14:05:41 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 17:35:07 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ int			stop_condition(t_philo *philo);
 void		action_eat(t_philo *philo);
 void		action_sleep(t_philo *philo);
 void		action_think(t_philo *philo);
+char		*ft_itoa(t_timems n, char *dest);
 
 #endif

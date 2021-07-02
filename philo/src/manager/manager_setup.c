@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 11:30:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 17:14:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	init_philo(t_manager *manager)
 	i = 0;
 	while (i < manager->config.philo_count)
 	{
-		if (pthread_mutex_init(&manager->run_simulation_mutex, NULL) < 0)
+		if (pthread_mutex_init(&manager->philo_array[i].fork_mutex, NULL) < 0)
 		{
 			while (i--)
 				pthread_mutex_destroy(&manager->philo_array[i].fork_mutex);
