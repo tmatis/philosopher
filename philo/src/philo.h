@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 17:35:07 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 17:59:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_manager
 	pthread_t		*philo_threads;
 	int				run_simulation;
 	pthread_mutex_t	run_simulation_mutex;
-
+	pthread_mutex_t	write_mutex;
 }	t_manager;
 
 typedef struct s_philo
@@ -73,6 +73,8 @@ typedef struct s_philo
 }	t_philo;
 
 void		puterror(char *name, char *location, char *error);
+void		putstr_fd(char *str, int fd);
+void		write_status(char *str, t_philo *philo);
 void		ft_usleep(t_timems ms);
 t_timems	get_relative_time(t_timems start_time);
 t_timems	get_actual_time(void);

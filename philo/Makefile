@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/07/01 16:41:04 by tmatis           ###   ########.fr        #
+#    Updated: 2021/07/02 18:02:27 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS_PATH	= src
 
 SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c \
 			  manager/manager_setup.c manager/manager_func.c philosopher/philo.c \
-			  philosopher/philo_fork.c philosopher/philo_action.c
+			  philosopher/philo_fork.c philosopher/philo_action.c utils/itoa.c \
+			  write.c
 
 MAIN		= main.c
 

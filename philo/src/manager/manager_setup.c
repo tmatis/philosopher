@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 17:14:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 17:38:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	manager_setup(t_manager *manager)
 	}
 	manager->run_simulation = RUN_WAIT;
 	if (pthread_mutex_init(&manager->run_simulation_mutex, NULL) < 0
+		|| pthread_mutex_init(&manager->write_mutex, NULL) < 0
 		|| init_philo(manager) < 0)
 	{
 		puterror("philo", "setup_manager", "philosopher mutex fail");
