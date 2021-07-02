@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 10:23:49 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 18:00:25 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/02 18:07:58 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	dine(t_philo *philo)
 	if (philo_is_dead(philo)
 		&& manager_get_runstate(philo->manager) != RUN_STOP)
 	{
-		manager_set_runstate(RUN_STOP, philo->manager);
 		write_status("died", philo);
+		manager_set_runstate(RUN_STOP, philo->manager);
 	}		
 }
 
