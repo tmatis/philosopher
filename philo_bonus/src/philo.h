@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 11:55:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 12:18:52 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct s_philo
 	t_timems		last_meal;
 	int				action;
 }	t_philo;
-
 
 void		puterror(char *name, char *location, char *error);
 void		putstr_fd(char *str, int fd);
