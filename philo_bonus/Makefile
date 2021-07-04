@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/07/02 18:02:27 by tmatis           ###   ########.fr        #
+#    Updated: 2021/07/04 11:42:22 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ################################################################################
 
 
-NAME	= philo
+NAME	= philo_bonus
 CC 		= clang
 CFLAGS	= -Wall -Werror -Wextra -g
 LIBFT	= libft/libft.a
@@ -28,11 +28,8 @@ DATE	= 25/03/2021
 
 SRCS_PATH	= src
 
-SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c \
-			  manager/manager_setup.c manager/manager_func.c philosopher/philo.c \
-			  philosopher/philo_fork.c philosopher/philo_action.c utils/itoa.c \
-			  write.c
-
+SRCS		= utils/put.c utils/atoi.c utils/time.c parser.c utils/itoa.c \
+			  sem.c philo/philo.c philo/write.c philo/philo_action.c
 MAIN		= main.c
 
 ################################################################################
