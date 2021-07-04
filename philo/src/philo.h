@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 17:59:48 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 11:15:38 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct s_philo
 	int				meal_counter;
 	t_timems		last_meal;
 	pthread_mutex_t	fork_mutex;
-	int				is_dead;
 	int				action;
 	t_manager		*manager;
 }	t_philo;
