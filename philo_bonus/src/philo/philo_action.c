@@ -6,21 +6,43 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 11:37:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 12:16:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 18:37:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
+int	take_forks(t_philo *philo)
+{
+	sem_wait(philo->config.sem_fork);
+	if (stop_condition(*philo))
+	{
+		sem_post(philo->config.sem_fork);
+		return (1);
+	}
+	write_status("taken a fork", *philo);
+	if (philo->config.philo_count == 1)
+	{
+		while (!stop_condition(*philo))
+			usleep(PERF_DELAY);
+	}
+	else
+		sem_wait(philo->config.sem_fork);
+	if (stop_condition(*philo))
+	{
+		sem_post(philo->config.sem_fork);
+		return (1);
+	}
+	write_status("taken a fork", *philo);
+	return (0);
+}
+
 void	action_eat(t_philo *philo)
 {
 	t_timems	start;
 
-	philo->last_meal = get_relative_time(philo->config.start_time);
-	sem_wait(philo->config.sem_fork);
-	write_status("taken a fork", *philo);
-	sem_wait(philo->config.sem_fork);
-	write_status("taken a fork", *philo);
+	if (take_forks(philo))
+		return ;
 	philo->last_meal = get_relative_time(philo->config.start_time);
 	write_status("is eating", *philo);
 	start = get_actual_time();
