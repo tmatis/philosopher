@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 19:36:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 18:38:52 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 18:40:50 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	take_forks(t_philo *philo)
 	if (philo->manager->config.philo_count > 1)
 	{
 		if (philo->philo_id == philo->manager->config.philo_count)
-		{
 			pthread_mutex_lock(&philo->manager->philo_array[0].fork_mutex);
-		}
 		else
 			pthread_mutex_lock(
 				&philo->manager->philo_array[philo->philo_id].fork_mutex);
