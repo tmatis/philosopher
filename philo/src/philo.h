@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:43:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 11:15:38 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 18:11:38 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		*philo_routine(t_philo *philo);
 void		manager_set_runstate(int run_state, t_manager *manager);
 int			manager_get_runstate(t_manager *manager);
 int			philo_is_dead(t_philo *philo);
-void		take_forks(t_philo *philo);
+int			take_forks(t_philo *philo);
 void		drop_forks(t_philo *philo);
 int			is_counter_reached(t_timems target, t_timems relative_start);
 void		manager_wait_threads(t_manager manager);

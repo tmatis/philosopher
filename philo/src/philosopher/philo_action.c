@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:38:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 11:06:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 18:20:26 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ void	action_eat(t_philo *philo)
 {
 	t_timems	start;
 
-	take_forks(philo);
+	if (take_forks(philo))
+	{
+		while (!stop_condition(philo))
+			usleep(PERF_DELAY);
+	}
 	if (stop_condition(philo))
 	{
 		drop_forks(philo);
