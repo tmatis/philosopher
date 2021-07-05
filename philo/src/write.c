@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:58 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 18:21:26 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/04 21:16:22 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,38 @@ static int	ft_strlen(char *str)
 	return (i);
 }
 
+static	int streq(char *s1, char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 == *s2);
+}
+
 void	write_status(char *str, t_philo *philo)
 {
 	char		buff[50];
 	char		dest[4048];
 
-	if (manager_get_runstate(philo->manager) == RUN_STOP)
+	pthread_mutex_lock(&philo->manager->write_mutex);
+	pthread_mutex_lock(&philo->manager->run_simulation_mutex);
+	if (philo->manager->run_simulation == RUN_STOP)
+	{
+		pthread_mutex_unlock(&philo->manager->run_simulation_mutex);
+		pthread_mutex_unlock(&philo->manager->write_mutex);
 		return ;
+	}
+	if (streq(str, "died"))
+		philo->manager->run_simulation = RUN_STOP;
+	pthread_mutex_unlock(&philo->manager->run_simulation_mutex);
 	ft_itoa(get_relative_time(philo->manager->start_time), dest);
 	ft_strcat(dest, " ");
 	ft_strcat(dest, ft_itoa(philo->philo_id, buff));
 	ft_strcat(dest, " ");
 	ft_strcat(dest, str);
 	ft_strcat(dest, "\n");
-	pthread_mutex_lock(&philo->manager->write_mutex);
 	write(STDOUT_FILENO, dest, ft_strlen(dest));
 	pthread_mutex_unlock(&philo->manager->write_mutex);
 }
