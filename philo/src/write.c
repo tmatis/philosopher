@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:58 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 21:16:22 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/05 11:53:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_strlen(char *str)
 	return (i);
 }
 
-static	int streq(char *s1, char *s2)
+static int	streq(char *s1, char *s2)
 {
 	while (*s1 && *s1 == *s2)
 	{
