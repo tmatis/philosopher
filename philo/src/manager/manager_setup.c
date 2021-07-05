@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:02:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/02 17:38:01 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/05 20:41:36 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void	manager_destroy(t_manager manager)
 {
 	int	i;
 
-	free(manager.philo_array);
-	free(manager.philo_threads);
 	pthread_mutex_destroy(&manager.run_simulation_mutex);
 	i = 0;
 	while (i < manager.config.philo_count)
@@ -81,6 +79,8 @@ void	manager_destroy(t_manager manager)
 		pthread_mutex_destroy(&manager.philo_array[i].fork_mutex);
 		i++;
 	}
+	free(manager.philo_array);
+	free(manager.philo_threads);
 }
 
 void	manager_wait_threads(t_manager manager)
