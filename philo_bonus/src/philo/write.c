@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:30:58 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 11:32:06 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/05 11:49:37 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ static int	ft_strlen(char *str)
 	return (i);
 }
 
+static	int streq(char *s1, char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 == *s2);
+}
+
 void	write_status(char *str, t_philo philo)
 {
 	char		buff[50];
@@ -48,5 +58,6 @@ void	write_status(char *str, t_philo philo)
 	ft_strcat(dest, "\n");
 	sem_wait(philo.config.sem_write);
 	write(STDOUT_FILENO, dest, ft_strlen(dest));
-	sem_post(philo.config.sem_write);
+	if (!streq(str, "died"))
+		sem_post(philo.config.sem_write);
 }
