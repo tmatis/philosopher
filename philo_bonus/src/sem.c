@@ -6,11 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 18:31:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 12:25:09 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/06 19:43:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <fcntl.h>
 
 void	unlink_sems(void)
 {
