@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:31:34 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/06 19:51:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/06 19:53:23 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	manage_process(t_config config)
 		{
 			philo_routine(init_philo(config, i));
 			free(pid);
+			exit(0);
 		}
 		i++;
 	}

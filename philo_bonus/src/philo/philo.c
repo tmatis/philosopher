@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:31:44 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/04 12:29:11 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/06 19:53:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	dine(t_philo philo)
 	}
 	if (philo_is_dead(philo))
 		write_status("died", philo);
-	exit(0);
 }
 
 void	philo_routine(t_philo philo)
