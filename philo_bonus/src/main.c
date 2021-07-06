@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 18:31:34 by tmatis            #+#    #+#             */
-/*   Updated: 2021/07/06 20:42:38 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/07/06 20:53:04 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,10 @@ int	main(int argc, char *argv[])
 	if (parse_args(argc - 1, argv + 1, &config) < 0)
 		return (1);
 	unlink_sems();
-	open_sems(&config);
-	manage_process(config);
-	close_sems(config);
+	if (config.philo_count > 0)
+	{
+		open_sems(&config);
+		manage_process(config);
+		close_sems(config);
+	}
 }
